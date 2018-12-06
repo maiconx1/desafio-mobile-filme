@@ -8,4 +8,8 @@
     <string name="menu_salvar">Salvar</string>
     <string name="searchable_hint">Título do filme</string>
     <string name="label_filmes">Filmes</string>
+    <string name="lbl_direcao">Direção</string>
+    <string name="lbl_lancamento">Lançamento</string>
+    <string name="lbl_tempo">Tempo</string>
+    <string name="lbl_elenco">Elenco</string>
 </resources>

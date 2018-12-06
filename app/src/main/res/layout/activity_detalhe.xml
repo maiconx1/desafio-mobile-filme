@@ -1,47 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".view.detalhe.activity.DetalheActivity">
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <ImageView
+            android:id="@+id/img_filme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/desc_imagem_filme"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.4"/>
+            android:id="@+id/cl_conteudo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline">
 
             <ImageView
-                android:layout_width="0dp"
+                android:id="@+id/img_add"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/desc_imagem_filme"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:contentDescription="@string/desc_deletar"
+                android:src="@drawable/ic_delete_white_24dp"
+                app:layout_constraintLeft_toRightOf="@id/txt_title"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/guideline"/>
+                app:layout_constraintTop_toTopOf="@id/txt_title" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="texto"/>
+                android:id="@+id/txt_title"
+                style="@style/Titulo"
+                android:text="BATMAN BEGINS (movie)"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/img_add"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_genero"
+                style="@style/SubTitulo"
+                android:text="Action, Adventure, Thriller"
+                app:layout_constraintLeft_toLeftOf="@id/txt_title"
+                app:layout_constraintRight_toRightOf="@id/txt_title"
+                app:layout_constraintTop_toBottomOf="@id/txt_title" />
+
+            <TextView
+                android:id="@+id/lbl_ano"
+                style="@style/LabelInfo"
+                android:gravity="center"
+                android:text="2018"
+                app:layout_constraintLeft_toLeftOf="@id/txt_genero"
+                app:layout_constraintRight_toLeftOf="@id/lbl_rated"
+                app:layout_constraintTop_toBottomOf="@id/txt_genero" />
+
+            <TextView
+                android:id="@+id/lbl_rated"
+                style="@style/LabelInfo"
+                android:gravity="center"
+                android:text="PG-13"
+                app:layout_constraintLeft_toRightOf="@id/lbl_ano"
+                app:layout_constraintRight_toLeftOf="@id/lbl_tempo"
+                app:layout_constraintTop_toBottomOf="@id/txt_genero" />
+
+            <TextView
+                android:id="@+id/lbl_tempo"
+                style="@style/LabelInfo"
+                android:gravity="center"
+                android:text="140 min"
+                app:layout_constraintLeft_toRightOf="@id/lbl_rated"
+                app:layout_constraintRight_toRightOf="@id/txt_genero"
+                app:layout_constraintTop_toBottomOf="@id/txt_genero" />
+
+            <TextView
+                android:id="@+id/txt_plot"
+                style="@style/Info"
+                android:layout_marginTop="16dp"
+                android:text="The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker."
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lbl_ano"/>
+
+            <TextView
+                android:id="@+id/lbl_diretor"
+                style="@style/LabelInfo"
+                android:text="@string/lbl_direcao"
+                app:layout_constraintLeft_toLeftOf="@id/txt_plot"
+                app:layout_constraintTop_toBottomOf="@id/txt_plot" />
+
+            <TextView
+                android:id="@+id/txt_diretor"
+                style="@style/Info"
+                android:text="Christopher Nolan"
+                app:layout_constraintLeft_toLeftOf="@id/lbl_diretor"
+                app:layout_constraintTop_toBottomOf="@id/lbl_diretor" />
+
+            <TextView
+                android:id="@+id/lbl_elenco"
+                style="@style/LabelInfo"
+                android:text="@string/lbl_elenco"
+                app:layout_constraintLeft_toLeftOf="@id/lbl_diretor"
+                app:layout_constraintTop_toBottomOf="@id/txt_diretor" />
+
+            <TextView
+                android:id="@+id/txt_elenco"
+                style="@style/Info"
+                android:text="Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl"
+                app:layout_constraintLeft_toLeftOf="@id/lbl_elenco"
+                app:layout_constraintTop_toBottomOf="@id/lbl_elenco" />
+
+            <TextView
+                android:id="@+id/lbl_lancamento"
+                style="@style/LabelInfo"
+                android:text="@string/lbl_lancamento"
+                app:layout_constraintLeft_toLeftOf="@id/lbl_elenco"
+                app:layout_constraintTop_toBottomOf="@id/txt_elenco" />
+
+            <TextView
+                android:id="@+id/txt_lancamento"
+                style="@style/Info"
+                android:text="15 Jun 2005"
+                app:layout_constraintLeft_toLeftOf="@id/lbl_lancamento"
+                app:layout_constraintTop_toBottomOf="@id/lbl_lancamento" />
 
         </android.support.constraint.ConstraintLayout>
-    </android.support.v4.widget.NestedScrollView>
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
