@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DesafioFilmes</string>
+    <string name="desc_imagem_filme">Imagem filme</string>
+    <string name="desc_deletar">Deletar</string>
+    <string name="menu_buscar">Buscar</string>
+    <string name="tit_filmes_salvos">Filmes salvos</string>
+    <string name="tit_detalhes">Detalhes</string>
+    <string name="menu_salvar">Salvar</string>
+    <string name="searchable_hint">Título do filme</string>
+    <string name="label_filmes">Filmes</string>
+</resources>

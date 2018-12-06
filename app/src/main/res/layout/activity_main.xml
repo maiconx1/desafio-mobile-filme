@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".view.inicio.activity.MainActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
+        android:id="@+id/scr_images"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:dsv_orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_image_card"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_conteudo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline">
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/desc_deletar"
+            android:src="@drawable/ic_delete_white_24dp"
+            app:layout_constraintLeft_toRightOf="@id/txt_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_title"/>
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="BATMAN BEGINS (movie)"
+            android:textColor="#FFFFFF"
+            android:textSize="19sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/img_add"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/txt_genero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Action, Adventure, Thriller"
+            android:textColor="#AAFFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="@id/txt_title"
+            app:layout_constraintRight_toRightOf="@id/txt_title"
+            app:layout_constraintTop_toBottomOf="@id/txt_title"/>
+
+        <TextView
+            android:id="@+id/lbl_diretor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Diretor"
+            android:textColor="#DDFFFFFF"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/txt_genero"
+            app:layout_constraintTop_toBottomOf="@id/txt_genero"/>
+
+        <TextView
+            android:id="@+id/txt_diretor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="Christopher Nolan"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/lbl_diretor"
+            app:layout_constraintTop_toBottomOf="@id/lbl_diretor"/>
+
+        <TextView
+            android:id="@+id/lbl_lancamento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Lançamento"
+            android:textColor="#DDFFFFFF"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/lbl_diretor"
+            app:layout_constraintTop_toBottomOf="@id/txt_diretor"/>
+
+        <TextView
+            android:id="@+id/txt_lancamento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="15 Jun 2005"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/lbl_lancamento"
+            app:layout_constraintTop_toBottomOf="@id/lbl_lancamento"/>
+
+        <TextView
+            android:id="@+id/lbl_tempo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Tempo"
+            android:textColor="#DDFFFFFF"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/lbl_lancamento"
+            app:layout_constraintTop_toBottomOf="@id/txt_lancamento"/>
+
+        <TextView
+            android:id="@+id/txt_tempo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="140 min"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/lbl_tempo"
+            app:layout_constraintTop_toBottomOf="@id/lbl_tempo"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
