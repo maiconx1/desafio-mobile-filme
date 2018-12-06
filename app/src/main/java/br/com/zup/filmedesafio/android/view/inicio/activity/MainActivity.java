@@ -2,6 +2,7 @@ package br.com.zup.filmedesafio.android.view.inicio.activity;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
@@ -21,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import br.com.zup.filmedesafio.android.R;
+import br.com.zup.filmedesafio.android.databinding.ActivityMainBinding;
 import br.com.zup.filmedesafio.android.model.FilmeModel;
 import br.com.zup.filmedesafio.android.model.SearchModel;
 import br.com.zup.filmedesafio.android.view.inicio.adapter.ImageFilmesAdapter;
@@ -33,24 +35,27 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements MainContract.view {
 
     private ArrayList<FilmeModel> filmes;
+    public FilmeModel filme;
     private MainContract.presenter presenter;
     private SearchView searchView;
 
-    @BindView(R.id.scr_images)
-    DiscreteScrollView srcImages;
+    private DiscreteScrollView srcImages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        //setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         presenter = new MainPresenter(this, new MainInteractor());
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(R.string.tit_filmes_salvos);
         }
 
+        srcImages = findViewById(R.id.scr_images);
         presenter.getFilmes("batman");
 
+        filme = new FilmeModel("Batman", "Christopher", "15 Jun 2005", "140 min", "movie");
+        binding.setFilme(filme);
     }
 
     @Override

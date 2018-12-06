@@ -1,5 +1,7 @@
 package br.com.zup.filmedesafio.android.model;
 
+import android.widget.RelativeLayout;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -85,6 +87,18 @@ public class FilmeModel {
     @Expose
     @SerializedName("Title")
     private String Title;
+
+    public FilmeModel() {
+
+    }
+
+    public FilmeModel(String title, String director, String released, String runtime, String type) {
+        Title = title;
+        Director = director;
+        Released = released;
+        Runtime = runtime;
+        Type = type;
+    }
 
     public String getResponse() {
         return Response;
@@ -201,5 +215,9 @@ public class FilmeModel {
         public String getSource() {
             return Source;
         }
+    }
+
+    public String getTitulo() {
+        return String.format("%s (%s)", getTitle(), getType());
     }
 }

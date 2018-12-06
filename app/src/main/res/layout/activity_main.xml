@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="filme" type="br.com.zup.filmedesafio.android.model.FilmeModel"/>
+    </data>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -48,7 +52,7 @@
         <TextView
             android:id="@+id/txt_title"
             style="@style/Titulo"
-            android:text="BATMAN BEGINS (movie)"
+            android:text="@{filme.titulo}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/img_add"
             app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +60,7 @@
         <TextView
             android:id="@+id/txt_genero"
             style="@style/SubTitulo"
-            android:text="Action, Adventure, Thriller"
+            android:text="@{filme.genre}"
             app:layout_constraintLeft_toLeftOf="@id/txt_title"
             app:layout_constraintRight_toRightOf="@id/txt_title"
             app:layout_constraintTop_toBottomOf="@id/txt_title" />
@@ -71,7 +75,7 @@
         <TextView
             android:id="@+id/txt_diretor"
             style="@style/Info"
-            android:text="Christopher Nolan"
+            android:text="@{filme.director}"
             app:layout_constraintLeft_toLeftOf="@id/lbl_diretor"
             app:layout_constraintTop_toBottomOf="@id/lbl_diretor" />
 
@@ -85,7 +89,7 @@
         <TextView
             android:id="@+id/txt_lancamento"
             style="@style/Info"
-            android:text="15 Jun 2005"
+            android:text="@{filme.released}"
             app:layout_constraintLeft_toLeftOf="@id/lbl_lancamento"
             app:layout_constraintTop_toBottomOf="@id/lbl_lancamento" />
 
@@ -99,10 +103,11 @@
         <TextView
             android:id="@+id/txt_tempo"
             style="@style/Info"
-            android:text="140 min"
+            android:text="@{filme.runtime}"
             app:layout_constraintLeft_toLeftOf="@id/lbl_tempo"
             app:layout_constraintTop_toBottomOf="@id/lbl_tempo" />
 
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
+</layout>
