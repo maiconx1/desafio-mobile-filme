@@ -12,13 +12,11 @@ import java.util.ArrayList;
 import android.support.annotation.NonNull;
 
 import android.support.annotation.Nullable;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 
 import br.com.zup.filmedesafio.android.R;
@@ -29,8 +27,6 @@ import br.com.zup.filmedesafio.android.view.inicio.adapter.ImageFilmesAdapter;
 import br.com.zup.filmedesafio.android.view.inicio.contract.MainContract;
 import br.com.zup.filmedesafio.android.view.inicio.interactor.MainInteractor;
 import br.com.zup.filmedesafio.android.view.inicio.presenter.MainPresenter;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements MainContract.view {
 
@@ -38,14 +34,15 @@ public class MainActivity extends AppCompatActivity implements MainContract.view
     public FilmeModel filme;
     private MainContract.presenter presenter;
     private SearchView searchView;
+    private ActivityMainBinding binding;
 
     private DiscreteScrollView srcImages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         presenter = new MainPresenter(this, new MainInteractor());
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(R.string.tit_filmes_salvos);
@@ -105,6 +102,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.view
     @Override
     public void atualizaInformacoes(FilmeModel filme) {
         Log.d("MAINACTIVITY", "ATUALIZA INFORMACOES");
+        this.filme = filme;
+        binding.setFilme(filme);
+        Log.d("MAINACTIVITY", filme.toString());
     }
 
     DiscreteScrollView.ScrollStateChangeListener<ImageFilmesAdapter.ViewHolder> listener = new DiscreteScrollView.ScrollStateChangeListener<ImageFilmesAdapter.ViewHolder>() {

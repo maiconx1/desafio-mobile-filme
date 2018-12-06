@@ -68,7 +68,8 @@ public class ImageFilmesAdapter extends RecyclerView.Adapter<ImageFilmesAdapter.
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(itemView.getContext(), DetalheActivity.class);
-                    intent.putExtra("ID", filme.getImdbID());
+                    intent.putExtra("IMDB", filme.getImdbID());
+                    intent.putExtra("TITLE", filme.getTitle());
                     itemView.getContext().startActivity(intent);
                 }
             });

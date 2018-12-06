@@ -16,5 +16,8 @@ public interface FilmesService {
     Call<SearchModel> getFilmes(@Query("apikey") String key, @Query("s") String filtro);
 
     @GET("/")
-    Call<FilmeModel> getFilme(@Query("apikey") String key, @Query("i") int id);
+    Call<FilmeModel> getFilmeId(@Query("apikey") String key, @Query("i") String imdbId);
+
+    @GET("/")
+    Call<FilmeModel> getFilmeTitle(@Query("apikey") String key, @Query("t") String title);
 }

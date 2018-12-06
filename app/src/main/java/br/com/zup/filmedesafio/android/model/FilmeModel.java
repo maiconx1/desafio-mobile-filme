@@ -220,4 +220,35 @@ public class FilmeModel {
     public String getTitulo() {
         return String.format("%s (%s)", getTitle(), getType());
     }
+
+    @Override
+    public String toString() {
+        return "FilmeModel{" +
+                "Response='" + Response + '\'' +
+                ", Website='" + Website + '\'' +
+                ", Production='" + Production + '\'' +
+                ", BoxOffice='" + BoxOffice + '\'' +
+                ", DVD='" + DVD + '\'' +
+                ", Type='" + Type + '\'' +
+                ", imdbID='" + imdbID + '\'' +
+                ", imdbVotes='" + imdbVotes + '\'' +
+                ", imdbRating='" + imdbRating + '\'' +
+                ", Metascore='" + Metascore + '\'' +
+                ", Ratings=" + Ratings +
+                ", Poster='" + Poster + '\'' +
+                ", Awards='" + Awards + '\'' +
+                ", Country='" + Country + '\'' +
+                ", Language='" + Language + '\'' +
+                ", Plot='" + Plot + '\'' +
+                ", Actors='" + Actors + '\'' +
+                ", Writer='" + Writer + '\'' +
+                ", Director='" + Director + '\'' +
+                ", Genre='" + Genre + '\'' +
+                ", Runtime='" + Runtime + '\'' +
+                ", Released='" + Released + '\'' +
+                ", Rated='" + Rated + '\'' +
+                ", Year='" + Year + '\'' +
+                ", Title='" + Title + '\'' +
+                '}';
+    }
 }
