@@ -31,8 +31,8 @@ public class MainPresenter implements MainContract.presenter, MainContract.inter
     }
 
     @Override
-    public void onFinished(SearchModel filmes) {
-        view.populaLista(filmes);
+    public void onFinished(SearchModel searchModel) {
+        view.populaLista(searchModel);
     }
 
     @Override
@@ -65,8 +65,7 @@ public class MainPresenter implements MainContract.presenter, MainContract.inter
         );
         ArrayList<FilmeModel> filmes = new ArrayList<>();
         while (cursor.moveToNext()) {
-            filmes.add(new FilmeModel(cursor));//cursor.getInt(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.COLUMN_ID)),
-            //cursor.getString(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.COLUMN_NOME))));
+            filmes.add(new FilmeModel(cursor));
         }
         view.populaImagens(filmes);
         cursor.close();

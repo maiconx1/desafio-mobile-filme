@@ -48,7 +48,7 @@ public class MainContract {
         void getFilmes(OnFinishedListener listener, String filtro);
 
         interface OnFinishedListener {
-            void onFinished(SearchModel showModels);
+            void onFinished(SearchModel searchModel);
             void onFailure(Throwable t);
         }
 

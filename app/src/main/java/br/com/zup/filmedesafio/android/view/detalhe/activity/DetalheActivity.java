@@ -70,7 +70,7 @@ public class DetalheActivity extends AppCompatActivity implements DetalheContrac
                 break;
             case R.id.menu_salvar:
                 if (salvo) {
-                    presenter.remFilmeShow(filme, DetalheActivity.this);
+                    presenter.remFilme(filme, DetalheActivity.this);
                     menu.getItem(0).setIcon(R.drawable.ic_save_white_24dp);
                     salvo = false;
                     break;

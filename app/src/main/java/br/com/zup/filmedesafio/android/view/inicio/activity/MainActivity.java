@@ -7,8 +7,6 @@ import android.os.Bundle;
 
 import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageClickListener;
-import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
 
@@ -21,7 +19,6 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.view
     private SearchView searchView;
     private ActivityMainBinding binding;
 
-    //private DiscreteScrollView scrImages;
     private CarouselView carouselView;
     private RecyclerView lstFilmes;
     private TextView txtInfoFilmes;
@@ -63,12 +59,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.view
         lstFilmes = findViewById(R.id.lst_filmes);
         clFilmes = findViewById(R.id.cl_filmes);
 
-        findViewById(R.id.img_rem).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.remFilme(filme, MainActivity.this);
-                presenter.pegaFilmesSalvos();
-            }
+        findViewById(R.id.img_rem).setOnClickListener(v -> {
+            presenter.remFilme(filme, MainActivity.this);
+            presenter.pegaFilmesSalvos();
         });
     }
 
@@ -95,15 +88,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.view
             atualizaLista();
             carouselView.setPageCount(filmes.size());
             atualizaInformacoes(filmes.get(0));
-            carouselView.setImageClickListener(new ImageClickListener() {
-                @Override
-                public void onClick(int position) {
-                    Intent intent = new Intent(MainActivity.this, DetalheActivity.class);
-                    intent.putExtra("IMDB", filme.getImdbID());
-                    intent.putExtra("TITLE", filme.getTitle());
-                    intent.putExtra("SALVO", true);
-                    startActivity(intent);
-                }
+            carouselView.setImageClickListener(position -> {
+                Intent intent = new Intent(MainActivity.this, DetalheActivity.class);
+                intent.putExtra("IMDB", filme.getImdbID());
+                intent.putExtra("TITLE", filme.getTitle());
+                intent.putExtra("SALVO", true);
+                startActivity(intent);
             });
             carouselView.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 @Override
@@ -145,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.view
         });
 
         searchView.setOnCloseListener(() -> {
-            //setContentView(R.layout.activity_main);
             lstFilmes.setAdapter(null);
             presenter.pegaFilmesSalvos();
             if (getSupportActionBar() != null)
@@ -245,13 +234,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.view
 
     private void atualizaLista() {
         carouselView.setImageListener(null);
-        carouselView.setImageListener(new ImageListener() {
-            @Override
-            public void setImageForPosition(int position, ImageView imageView) {
-                if (filmes.get(position).getPoster().isEmpty())
-                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_placeholder));
-                Picasso.get().load(filmes.get(position).getPoster()).into(imageView);
-            }
+        carouselView.setImageListener((position, imageView) -> {
+            if (filmes.get(position).getPoster().isEmpty())
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_placeholder));
+            Picasso.get().load(filmes.get(position).getPoster()).into(imageView);
         });
     }
 }

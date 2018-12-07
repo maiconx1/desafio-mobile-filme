@@ -13,8 +13,8 @@ import br.com.zup.filmedesafio.android.view.detalhe.contract.DetalheContract;
  * Criado por Maicon Dias Castro em 05/12/2018.
  */
 public class DetalhePresenter implements DetalheContract.presenter, DetalheContract.interactor.OnFinishedListener {
-    private DetalheContract.interactor interactor;
-    private DetalheContract.view view;
+    private final DetalheContract.interactor interactor;
+    private final DetalheContract.view view;
 
     public DetalhePresenter(DetalheContract.view view, DetalheContract.interactor interactor) {
         this.view = view;
@@ -60,7 +60,7 @@ public class DetalhePresenter implements DetalheContract.presenter, DetalheContr
     }
 
     @Override
-    public void remFilmeShow(FilmeModel filme, Context context) {
+    public void remFilme(FilmeModel filme, Context context) {
         FilmesDbHelper dbHelper = new FilmesDbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         String where = FilmesReaderContract.Filme.imdbid + " = ?";

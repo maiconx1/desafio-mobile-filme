@@ -1,7 +1,5 @@
 package br.com.zup.filmedesafio.android.service;
 
-import java.util.ArrayList;
-
 import br.com.zup.filmedesafio.android.model.FilmeModel;
 import br.com.zup.filmedesafio.android.model.SearchModel;
 import retrofit2.Call;

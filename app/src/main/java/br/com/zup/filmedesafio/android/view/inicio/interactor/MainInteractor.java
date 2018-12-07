@@ -1,11 +1,8 @@
 package br.com.zup.filmedesafio.android.view.inicio.interactor;
 
-import java.util.ArrayList;
-
 import android.support.annotation.NonNull;
 
 
-import br.com.zup.filmedesafio.android.model.FilmeModel;
 import br.com.zup.filmedesafio.android.model.SearchModel;
 import br.com.zup.filmedesafio.android.network.RetrofitInstance;
 import br.com.zup.filmedesafio.android.service.FilmesService;

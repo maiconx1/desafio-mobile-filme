@@ -2,10 +2,7 @@ package br.com.zup.filmedesafio.android.view.detalhe.contract;
 
 import android.content.Context;
 
-import java.util.ArrayList;
-
 import br.com.zup.filmedesafio.android.model.FilmeModel;
-import br.com.zup.filmedesafio.android.model.SearchModel;
 
 /**
  * Criado por Maicon Dias Castro em 05/12/2018.
@@ -22,7 +19,7 @@ public class DetalheContract {
 
         void addFilme(FilmeModel filme, Context context);
 
-        void remFilmeShow(FilmeModel filme, Context context);
+        void remFilme(FilmeModel filme, Context context);
     }
 
     public interface interactor {
