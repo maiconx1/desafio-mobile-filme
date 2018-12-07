@@ -1,5 +1,7 @@
 package br.com.zup.filmedesafio.android.view.detalhe.contract;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import br.com.zup.filmedesafio.android.model.FilmeModel;
@@ -17,6 +19,10 @@ public class DetalheContract {
         void getFilmeId(String imdbId);
 
         void getFilmeTitle(String title);
+
+        void addFilme(FilmeModel filme, Context context);
+
+        void remFilmeShow(FilmeModel filme, Context context);
     }
 
     public interface interactor {

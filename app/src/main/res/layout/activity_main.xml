@@ -9,6 +9,7 @@
             name="filme"
             type="br.com.zup.filmedesafio.android.model.FilmeModel"/>
     </data>
+
     <android.support.constraint.ConstraintLayout
 
         android:layout_width="match_parent"
@@ -74,6 +75,7 @@
                 android:id="@+id/lbl_diretor"
                 style="@style/LabelInfo"
                 android:text="@string/lbl_direcao"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="@id/txt_genero"
                 app:layout_constraintTop_toBottomOf="@id/txt_genero"/>
 
@@ -81,6 +83,7 @@
                 android:id="@+id/txt_diretor"
                 style="@style/Info"
                 android:text="@{filme.director}"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="@id/lbl_diretor"
                 app:layout_constraintTop_toBottomOf="@id/lbl_diretor"/>
 
@@ -94,7 +97,7 @@
             <TextView
                 android:id="@+id/txt_lancamento"
                 style="@style/Info"
-                android:text="@{filme.released}"
+                android:text="@{filme.year}"
                 app:layout_constraintLeft_toLeftOf="@id/lbl_lancamento"
                 app:layout_constraintTop_toBottomOf="@id/lbl_lancamento"/>
 
@@ -102,6 +105,7 @@
                 android:id="@+id/lbl_tempo"
                 style="@style/LabelInfo"
                 android:text="@string/lbl_tempo"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="@id/lbl_lancamento"
                 app:layout_constraintTop_toBottomOf="@id/txt_lancamento"/>
 
@@ -109,6 +113,7 @@
                 android:id="@+id/txt_tempo"
                 style="@style/Info"
                 android:text="@{filme.runtime}"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="@id/lbl_tempo"
                 app:layout_constraintTop_toBottomOf="@id/lbl_tempo"/>
 

@@ -12,4 +12,6 @@
     <string name="lbl_lancamento">Lançamento</string>
     <string name="lbl_tempo">Tempo</string>
     <string name="lbl_elenco">Elenco</string>
+    <string name="err_mais_de_tres">Digite mais de 3 letras!</string>
+    <string name="desc_action">Salvar/deletar</string>
 </resources>

@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 import br.com.zup.filmedesafio.android.R;
 import br.com.zup.filmedesafio.android.model.FilmeModel;
-import br.com.zup.filmedesafio.android.network.RetrofitInstance;
 import br.com.zup.filmedesafio.android.view.detalhe.activity.DetalheActivity;
 
 /**
@@ -43,8 +42,12 @@ public class ImageFilmesAdapter extends RecyclerView.Adapter<ImageFilmesAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.filme = filmes.get(position);
-        Log.d("IMAGEFILMESADAPTER", holder.filme.getPoster());
-        //Picasso.get().load(holder.filme.getPoster()).into(holder.image);
+        if(position == 0) {
+            holder.image.setScaleX(1.2f);
+            holder.image.setScaleY(1.2f);
+        }
+        Log.d("IMAGEFILMESADAPTER", "" + holder.filme.getPoster());
+        Picasso.get().load(holder.filme.getPoster()).into(holder.image);
         /*Glide.with(holder.itemView.getContext())
                 .load(holder.filme.getPoster())
                 .into(holder.image);*/
@@ -63,13 +66,14 @@ public class ImageFilmesAdapter extends RecyclerView.Adapter<ImageFilmesAdapter.
         ViewHolder(final View itemView) {
             super(itemView);
             crdItem = itemView.findViewById(R.id.crd_item);
-            image = itemView.findViewById(R.id.image);
+            image = itemView.findViewById(R.id.img_item);
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(itemView.getContext(), DetalheActivity.class);
                     intent.putExtra("IMDB", filme.getImdbID());
                     intent.putExtra("TITLE", filme.getTitle());
+                    intent.putExtra("SALVO", true);
                     itemView.getContext().startActivity(intent);
                 }
             });

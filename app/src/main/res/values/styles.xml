@@ -55,4 +55,40 @@
         <item name="android:layout_margin">0dp</item>
     </style>
 
+    <style name="ItemTitleText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:fontFamily">sans-serif-medium | sans-serif</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">23sp</item>
+    </style>
+
+    <style name="ItemImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:src">@drawable/ic_placeholder</item>
+    </style>
+
+    <style name="ItemAction" parent="ItemImage">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:src">@drawable/ic_save_white_24dp</item>
+        <item name="android:tint">@color/black</item>
+    </style>
+
+    <style name="ItemLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+    </style>
+
 </resources>

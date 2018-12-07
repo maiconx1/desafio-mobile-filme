@@ -1,11 +1,13 @@
 package br.com.zup.filmedesafio.android.model;
 
-import android.widget.RelativeLayout;
+import android.database.Cursor;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
+import br.com.zup.filmedesafio.android.database.FilmesReaderContract;
 
 /**
  * Criado por Maicon Dias Castro em 05/12/2018.
@@ -92,12 +94,24 @@ public class FilmeModel {
 
     }
 
-    public FilmeModel(String title, String director, String released, String runtime, String type) {
+    public FilmeModel(String imdbId, String title, String director, String year, String runtime, String type, String poster) {
+        this.imdbID = imdbId;
         Title = title;
         Director = director;
-        Released = released;
+        Year = year;
         Runtime = runtime;
         Type = type;
+        Poster = poster;
+    }
+
+    public FilmeModel(Cursor cursor) {
+        imdbID = cursor.getString(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.imdbid));
+        Title = cursor.getString(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.title));
+        Director = cursor.getString(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.director));
+        Year = cursor.getString(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.year));
+        Runtime =cursor.getString(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.runtime));
+        Type = cursor.getString(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.type));
+        Poster = cursor.getString(cursor.getColumnIndexOrThrow(FilmesReaderContract.Filme.poster));
     }
 
     public String getResponse() {

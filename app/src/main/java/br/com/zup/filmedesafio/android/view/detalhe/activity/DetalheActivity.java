@@ -17,16 +17,19 @@ import br.com.zup.filmedesafio.android.view.detalhe.contract.DetalheContract;
 import br.com.zup.filmedesafio.android.view.detalhe.interactor.DetalheInteractor;
 import br.com.zup.filmedesafio.android.view.detalhe.presenter.DetalhePresenter;
 
-public class DetalheActivity extends AppCompatActivity implements DetalheContract.view{
+public class DetalheActivity extends AppCompatActivity implements DetalheContract.view {
     private ActivityDetalheBinding binding;
     private DetalheContract.presenter presenter;
+    private boolean salvo = false;
+    private Menu menu;
+    private FilmeModel filme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detalhe);
-        if(getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(R.string.tit_detalhes);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
@@ -35,14 +38,14 @@ public class DetalheActivity extends AppCompatActivity implements DetalheContrac
         Intent intent = getIntent();
         String id = "";
         String title = "";
-        if(intent != null) {
+        if (intent != null) {
             id = intent.getStringExtra("IMDB");
             title = intent.getStringExtra("TITLE");
+            salvo = intent.getBooleanExtra("SALVO", false);
         }
-        if(!id.isEmpty()) {
+        if (!id.isEmpty()) {
             presenter.getFilmeId(id);
-        }
-        else {
+        } else {
             presenter.getFilmeTitle(title);
         }
     }
@@ -50,6 +53,12 @@ public class DetalheActivity extends AppCompatActivity implements DetalheContrac
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detalhe_menu, menu);
+        if (salvo) {
+            menu.getItem(0).setIcon(R.drawable.ic_delete_white_24dp);
+        } else {
+            menu.getItem(0).setIcon(R.drawable.ic_save_white_24dp);
+        }
+        this.menu = menu;
         return true;
     }
 
@@ -59,13 +68,25 @@ public class DetalheActivity extends AppCompatActivity implements DetalheContrac
             case android.R.id.home:
                 super.onBackPressed();
                 break;
+            case R.id.menu_salvar:
+                if (salvo) {
+                    presenter.remFilmeShow(filme, DetalheActivity.this);
+                    menu.getItem(0).setIcon(R.drawable.ic_save_white_24dp);
+                    salvo = false;
+                    break;
+                }
+                presenter.addFilme(filme, DetalheActivity.this);
+                salvo = true;
+                menu.getItem(0).setIcon(R.drawable.ic_delete_white_24dp);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void atualizaInformacoes(FilmeModel filme) {
+        this.filme = filme;
         binding.setFilme(filme);
-        Picasso.get().load(filme.getPoster()).into((ImageView)findViewById(R.id.img_filme));
+        Picasso.get().load(filme.getPoster()).into((ImageView) findViewById(R.id.img_filme));
     }
 }
