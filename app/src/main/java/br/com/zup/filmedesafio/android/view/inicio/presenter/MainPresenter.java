@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
+
 
 import java.util.ArrayList;
 
@@ -76,7 +76,7 @@ public class MainPresenter implements MainContract.presenter, MainContract.inter
     @Override
     public void addFilme(FilmeModel filme, Context context) {
         view.addFilme(filme);
-        Log.d("MAINPRESENTER", filme.getPoster());
+
         FilmesDbHelper dbHelper = new FilmesDbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -91,7 +91,7 @@ public class MainPresenter implements MainContract.presenter, MainContract.inter
     }
 
     @Override
-    public void remFilmeShow(FilmeModel filme, Context context) {
+    public void remFilme(FilmeModel filme, Context context) {
         view.remFilme(filme);
         FilmesDbHelper dbHelper = new FilmesDbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

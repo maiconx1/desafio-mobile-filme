@@ -29,7 +29,7 @@ public class MainContract {
         interface OnListFragmentInteractionListener {
             void onListFragmentAction(FilmeModel filme, RecyclerView.Adapter adapter);
 
-            void onListFragmentInteraction(FilmeModel filme);
+            void onListFragmentInteraction(FilmeModel filme, boolean saved);
         }
     }
 
@@ -41,7 +41,7 @@ public class MainContract {
 
         void addFilme(FilmeModel filme, Context context);
 
-        void remFilmeShow(FilmeModel filme, Context context);
+        void remFilme(FilmeModel filme, Context context);
     }
 
     public interface interactor {

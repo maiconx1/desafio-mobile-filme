@@ -64,7 +64,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 if (listener != null) {
-                    listener.onListFragmentInteraction(holder.filme);
+                    listener.onListFragmentInteraction(holder.filme, holder.saved);
                 }
             }
         });

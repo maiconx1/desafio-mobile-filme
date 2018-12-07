@@ -14,4 +14,5 @@
     <string name="lbl_elenco">Elenco</string>
     <string name="err_mais_de_tres">Digite mais de 3 letras!</string>
     <string name="desc_action">Salvar/deletar</string>
+    <string name="txt_info_filmes">SEUS FILMES SALVOS APARECERÃO AQUI</string>
 </resources>

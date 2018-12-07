@@ -3,7 +3,7 @@ package br.com.zup.filmedesafio.android.view.inicio.interactor;
 import java.util.ArrayList;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
+
 
 import br.com.zup.filmedesafio.android.model.FilmeModel;
 import br.com.zup.filmedesafio.android.model.SearchModel;
@@ -23,7 +23,7 @@ public class MainInteractor implements MainContract.interactor {
     public void getFilmes(final OnFinishedListener onFinishedListener, String filtro) {
         FilmesService filmesService = RetrofitInstance.getRetrofitInstance().create(FilmesService.class);
         Call<SearchModel> call = filmesService.getFilmes(RetrofitInstance.API_KEY, filtro);
-        Log.d("MAININTERACTOR", call.request().url() + "");
+
         call.enqueue(new Callback<SearchModel>() {
             @Override
             public void onResponse(@NonNull Call<SearchModel> call, @NonNull Response<SearchModel> response) {

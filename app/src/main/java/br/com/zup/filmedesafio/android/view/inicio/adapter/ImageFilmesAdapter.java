@@ -4,13 +4,12 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -27,7 +26,6 @@ public class ImageFilmesAdapter extends RecyclerView.Adapter<ImageFilmesAdapter.
     private ArrayList<FilmeModel> filmes;
 
     public ImageFilmesAdapter(ArrayList<FilmeModel> filmes) {
-        Log.d("IMAGEFILMESADAPTER", filmes.size() + " - TAMANHO");
         this.filmes = filmes;
     }
 
@@ -46,7 +44,7 @@ public class ImageFilmesAdapter extends RecyclerView.Adapter<ImageFilmesAdapter.
             holder.image.setScaleX(1.2f);
             holder.image.setScaleY(1.2f);
         }
-        Log.d("IMAGEFILMESADAPTER", "" + holder.filme.getPoster());
+
         Picasso.get().load(holder.filme.getPoster()).into(holder.image);
         /*Glide.with(holder.itemView.getContext())
                 .load(holder.filme.getPoster())
